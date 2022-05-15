@@ -4,7 +4,7 @@
 
  <meta charset="UTF-8"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
- <title>Panel Sayfası</title>
+ <title>Giriş Yap Sayfası</title>
  
 
 
@@ -56,49 +56,41 @@
      <a class="nav-link" href="iletisim.html"> İLETİŞİM</a>
    </li>
    <li class="nav-item">
-    <a class="nav-link" href="login.php"> GİRİŞ YAP</a>
+    <a class="nav-link" href="login.html"> GİRİŞ YAP</a>
   </li>
-   
-  </ul>
   
-  </nav>
-  <br>
-  <br>
+  </ul>
 </div>
-
+</nav>
+<br>
+<br>	
+	
+	<main>
+<!--BASLİK-->
 <center>
-<h1 ><strong> Panel </strong></h1><br><br>
-
-
+<h1><strong> Login Sayfası </strong> </h1><br><br>
+</center>
 		<div class="container">
 			
-			<?php 
-
-				include("kisiler.php");
-
-//if komutuyla eğer formdaki user ve password kısmı post edilirse bu komutlar calışsın
-
-				if (($_POST["email"] == $user) and ($_POST["password"] == $pass))
-				{
-			       $_SESSION["login"] = "true";
-			       $_SESSION["user"] = $user;
-			       $_SESSION["pass"] = $pass;
-			
-				  
-			       echo(" HOŞGELDİNİZ ' $user ' ");
-			
-				}
-			
-				else 
-				{
-			            echo "Kullancı Adı veya Şifre Yanlış !<br>";
-			            echo " Login Sayfasına Yönlendiriliyorsunuz. ";
-			            header('Refresh: 2; url="login.php"');
-			    }
-			
-			?>
-			</center>
+			<form action="panel.php" method="POST">
+				<div class="form-group">
+					<label for="email "><strong>Mail Adresi :</strong></label>
+					<input type="text" name="email" class="form-control" placeholder="Emailinizi 'b123456789@sakarya.edu.tr veya 'g123456789@sakarya.edu.tr' veya 'b12345678@sakarya.edu.tr' giriniz." required="required">
+				</div>
+				<div class="form-group">
+					<label for="password"><strong>Şifre :</strong></label>
+					<input type="password" name="password" class="form-control" placeholder="Şifreyi '12345' giriniz." required="required">
+				</div>
+				<button class="btn btn btn-dark " type="submit">Gönder</button>
+				<br><br><br>
+			</form>
 		</div>
-
 	</main>
-    
+	
+	<!-- BOOTSTRAP -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	
+</body>
+</html>
